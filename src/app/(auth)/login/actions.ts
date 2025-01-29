@@ -1,12 +1,13 @@
 "use server";
+
 import { createClient } from "@/utils/supabase/server";
 
 export type LoginState = {
-  sucess: null | boolean;
+  success: null | boolean;
   message?: string;
 };
 
-export async function login(previusState: LoginState, formData: FormData) {
+export async function login(previousState: LoginState, formData: FormData) {
   const supabase = await createClient();
 
   const email = formData.get("email") as string;
@@ -20,13 +21,13 @@ export async function login(previusState: LoginState, formData: FormData) {
 
   if (error) {
     return {
-      sucess: false,
+      success: false,
       message: error.message,
     };
   }
 
   return {
-    sucess: true,
-    message: "Email enviado",
+    success: true,
+    message: "Email enviado!",
   };
 }

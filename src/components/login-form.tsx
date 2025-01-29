@@ -12,14 +12,14 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useActionState } from "react";
 import { Loader, MessageCircle } from "lucide-react";
+import { useActionState } from "react";
 
 export default function LoginForm() {
   const [state, formAction, pending] = useActionState<LoginState, FormData>(
     login,
     {
-      sucess: null,
+      success: null,
       message: "",
     }
   );
@@ -41,30 +41,32 @@ export default function LoginForm() {
                 id="email"
                 type="email"
                 name="email"
-                placeholder="email@email.com"
+                placeholder="maria@gmail.com"
                 required
               />
             </div>
-            {state.sucess === true && (
+
+            {state.success === true && (
               <Alert className="text-muted-foreground">
-                <MessageCircle className="h-4 w-4 text-green-600" />
-                <AlertTitle className="text-gray-50">Email enviado</AlertTitle>
+                <MessageCircle className="h-4 w-4 !text-green-600" />
+                <AlertTitle className="text-gray-50">Email enviado!</AlertTitle>
                 <AlertDescription>
                   Confira seu inbox para acessar o link de login.
                 </AlertDescription>
               </Alert>
             )}
 
-            {state.sucess === false && (
+            {state.success === false && (
               <Alert className="text-muted-foreground">
-                <MessageCircle className="h-4 w-4 text-red-600" />
-                <AlertTitle className="text-gray-50">Erro</AlertTitle>
+                <MessageCircle className="h-4 w-4 !text-red-600" />
+                <AlertTitle className="text-gray-50">Erro!</AlertTitle>
                 <AlertDescription>
-                  Ocorreu um erro ao enviar o link de login. Por favor entre em
-                  contato com o suporte.
+                  Ocorreu um erro ao enviar o link de login. Por favor, entre em
+                  contato com o suporte!
                 </AlertDescription>
               </Alert>
             )}
+
             <Button type="submit" className="w-full">
               {pending && <Loader className="animate-spin" />}
               Login
