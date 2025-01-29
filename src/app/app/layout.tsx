@@ -7,7 +7,6 @@ export default async function AppLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const supabase = await createClient();
-
   const { data, error } = await supabase.auth.getUser();
 
   if (error || !data?.user) {

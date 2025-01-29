@@ -19,9 +19,10 @@ export default function Header() {
             <Link
               href="/app/grupos"
               className="text-foreground text-sm flex gap-2 items-center"
-            />
-            <UserRound className="w-4 h-4" />
-
+            >
+              <UserRound className="w-4 h-4" />
+              Meus grupos
+            </Link>
             <Button asChild variant="outline">
               <Link href="/app/grupos/novo">Novo Grupo</Link>
             </Button>
